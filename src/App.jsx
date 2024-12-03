@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotinas</h1>
+      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotinas WinThor </h1>
 
       <div className="flex mb-6 w-full max-w-lg">
         <input
