@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotina</h1>
+      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotinas</h1>
 
       <div className="flex mb-6 w-full max-w-lg">
         <input
@@ -91,10 +91,11 @@ function App() {
                   e.stopPropagation();
                   editTask(task.id);
                 }}
-                className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-600 transition duration-300"
+                className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-500 transition duration-300"
               >
+                
                 Editar
-              </button>
+                   </button>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -102,6 +103,7 @@ function App() {
                 }}
                 className="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition duration-300"
               >
+
                 Remover
               </button>
             </div>
