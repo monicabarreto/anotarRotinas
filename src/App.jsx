@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotinas WinThor </h1>
+      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Anotações e Rotinas WinThor  </h1>
 
       <div className="flex mb-6 w-full max-w-lg">
         <input
@@ -69,7 +69,7 @@ function App() {
         />
         <button
           onClick={addTask}
-          className="ml-2 bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition duration-300"
+          className="ml-2 bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
         >
           Adicionar
         </button>
