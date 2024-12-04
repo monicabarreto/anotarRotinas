@@ -103,7 +103,6 @@ function App() {
                 }}
                 className="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition duration-300"
               >
-
                 Remover
               </button>
             </div>
