@@ -111,8 +111,8 @@ function App() {
       </div>
 
       {selectedTask && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-10">
-          <div className="bg-white p-6 rounded-xl w-80">
+        <div className="fixed top-0 left-0 w-full h-full bg-grren bg-opacity-50 flex justify-center items-center z-10">
+          <div className="bg-white p-6 rounded-xl w-100">
             <h3 className="text-2xl font-semibold mb-4">Detalhes da Rotina</h3>
             <textarea
               value={selectedTask.content}
