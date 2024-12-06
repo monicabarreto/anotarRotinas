@@ -13,7 +13,7 @@ import { VitePWA } from 'vite-plugin-pwa'  // Mudança aqui
 
 // Configuração do Vite
 export default defineConfig({
-  base: '/<anotarRotinas>/',  // Substitua pelo nome do seu repositório
+  base: '/anotarRotinas/',  // Substitua pelo nome do seu repositório
   plugins: [
     react(),
     VitePWA({
@@ -43,3 +43,5 @@ export default defineConfig({
     })
   ]
 })
+
+
