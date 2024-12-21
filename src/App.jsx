@@ -59,13 +59,21 @@ function App() {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // Impede o salto de linha padrão
-      const newValue = taskInput + '\n✅ '; // Adiciona emoji no início da nova linha
+      const newValue = taskInput + '\n📌 '; // Adiciona emoji no início da nova linha
       setTaskInput(newValue); // Atualiza o conteúdo do campo de entrada
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 py-8 px-4">
+    <div
+      style={{
+        backgroundImage: "url('https://img.freepik.com/vetores-gratis/fundo-minimalista-gradiente_23-2150012301.jpg?t=st=1734791342~exp=1734794942~hmac=2996485b15a722aa607e584c272723340159eb6c469116de917713306ce3a6ca&w=740')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      className="min-h-screen flex flex-col items-center py-8 px-4"
+    >
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Meu Bloco de Notas</h1>
 
       <div className="flex flex-col mb-3 w-full max-w-lg">
@@ -80,14 +88,14 @@ function App() {
         
         {/* Botão abaixo do campo de entrada */}
         <button
-  onClick={addTask}
-  className="mt-2 bg-green-500 text-white py-2 px-4 text-sm rounded-lg hover:bg-green-700 transition duration-300 flex items-center"
->
-  Adicionar
-  <svg className="w-5 h-5 text-white-800 dark:text-white ml-2 flex items-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" >
-    <path stroke="currentColor" d="M5 11.917 9.724 16.5 19 7.5"/>
-  </svg>
-</button>
+          onClick={addTask}
+          className="mt-2 bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-700 transition duration-300 flex justify-center items-center"
+        >
+          Adicionar
+          <svg className="w-6 h-6 text-white-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" d="M5 11.917 9.724 16.5 19 7.5"/>
+          </svg>
+        </button>
       </div>
 
       {/* Lista de tarefas */}
@@ -100,10 +108,7 @@ function App() {
           >
             <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-4 w-full text-left hover:bg-blue-600 transition duration-300 flex items-center justify-between">
               <span>
-                {task.content.length > 30 ? task.content.substring(0, 30) + '...' : task.content}
-                <svg className="w-4 h-6 ml-1 text-white-800 dark:text-white flex items-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                  <path stroke="currentColor" d="M5 5h9M5 9h5m8-8H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l3.5 4 3.5-4h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                </svg>
+                {task.content.length > 30 ? task.content.substring(0, 30) +'\n💬' : task.content}
               </span>
             </button>
 
