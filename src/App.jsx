@@ -55,32 +55,42 @@ function App() {
     setSelectedTask(null);
   };
 
+  // Função para adicionar emoji de marcação ao pressionar Enter
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Impede o salto de linha padrão
+      const newValue = taskInput + '\n✅ '; // Adiciona emoji no início da nova linha
+      setTaskInput(newValue); // Atualiza o conteúdo do campo de entrada
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Meu Bloco de Notas </h1>
-      
+      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Meu Bloco de Notas</h1>
 
-      <div className="flex mb-6 w-full max-w-lg">
-        <input
-          type="text"
+      <div className="flex flex-col mb-3 w-full max-w-lg">
+        {/* Campo de entrada (textarea) */}
+        <textarea
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
+          onKeyDown={handleKeyDown} // Adicionando evento de tecla pressionada
           placeholder="Digite uma nova tarefa"
-          className="w-full p-2 border border-gray-300 rounded-lg shadow-md"
+          className="w-full p-4 border border-gray-300 rounded-lg shadow-md resize-none h-32"
         />
-       <button
+        
+        {/* Botão abaixo do campo de entrada */}
+        <button
   onClick={addTask}
-  className="ml-2 bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300 flex items-center"
+  className="mt-2 bg-green-500 text-white py-2 px-4 text-sm rounded-lg hover:bg-green-700 transition duration-300 flex items-center"
 >
-  Adicionar  
-  <svg className="w-6 h-6 text-white-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor"  d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
-
+  Adicionar
+  <svg className="w-5 h-5 text-white-800 dark:text-white ml-2 flex items-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" >
+    <path stroke="currentColor" d="M5 11.917 9.724 16.5 19 7.5"/>
+  </svg>
 </button>
-
       </div>
 
+      {/* Lista de tarefas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8 w-full max-w-6xl">
         {tasks.map((task) => (
           <div
@@ -88,14 +98,14 @@ function App() {
             className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105"
             onClick={() => handleCardClick(task)}
           >
-        <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-4 w-full text-left hover:bg-blue-600 transition duration-300 flex items-center justify-between">
-          <span>
-            {task.content.length > 30 ? task.content.substring(0, 30) + '...' : task.content} 
-             <svg className="w-4 h-6 ml-1 text-white-800 dark:text-white flex items-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-               <path stroke="currentColor"  d="M5 5h9M5 9h5m8-8H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l3.5 4 3.5-4h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-             </svg>
-          </span>        
-        </button>
+            <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-4 w-full text-left hover:bg-blue-600 transition duration-300 flex items-center justify-between">
+              <span>
+                {task.content.length > 30 ? task.content.substring(0, 30) + '...' : task.content}
+                <svg className="w-4 h-6 ml-1 text-white-800 dark:text-white flex items-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                  <path stroke="currentColor" d="M5 5h9M5 9h5m8-8H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l3.5 4 3.5-4h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                </svg>
+              </span>
+            </button>
 
             <div className="flex items-center justify-center gap-3 w-full">
               <button
@@ -106,11 +116,11 @@ function App() {
                 className="bg-yellow-300 text-white py-1 px-3 rounded-lg hover:bg-yellow-200 transition duration-300"
               >
                 Editar
-             </button>
+              </button>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  removeTask(task.id);  // Chama a função com confirmação
+                  removeTask(task.id); // Chama a função com confirmação
                 }}
                 className="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition duration-300"
               >
@@ -125,18 +135,16 @@ function App() {
         <div className="fixed top-0 left-0 w-full h-full bg-green bg-opacity-50 flex justify-center items-center z-10">
           <div className="bg-blue-100 p-6 rounded-xl w-100">
             <h3 className="text-2xl font-semibold mb-4">Detalhes:</h3>
-            
             <textarea
               value={selectedTask.content}
               readOnly
               rows={12}
               className="w-full p-2 border border-blue-300 rounded-lg resize-none mb-4"
-              
             />
             <button
               onClick={closeCardInfo}
-              className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"              
-            >              
+              className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+            >
               Fechar
             </button>
           </div>
