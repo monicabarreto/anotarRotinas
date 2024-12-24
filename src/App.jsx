@@ -74,7 +74,23 @@ function App() {
       }}
       className="min-h-screen flex flex-col items-center py-8 px-4"
     >
-      <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Meu Bloco de Notas</h1>
+      {/* <h1 className="text-4xl font-roboto md:sans-serif text-center text-blue-400 mb-8">Meu bloquinho de notas...</h1>
+      <h1 className="text-4xl font-roboto text-center text-blue-200 mb-8 shadow-text font-bold">
+      Meu bloquinho de notas...
+    </h1> */}
+     <div className="p-6">
+     <h1 className="text-4xl font-delius text-center  mb-8 shadow-text font-bold flex items-center justify-center">
+
+  Meu bloquinho de notas...
+  <img src="koala.png" alt="" className="mr-4 w-12 h-12" />
+</h1>
+
+      <p className="font-playwrite text-lg text-white flex text-center justify-center
+      ">
+        Crie, planeje, anote o que quiser... 
+      </p>
+    </div>
+    
 
       <div className="flex flex-col mb-3 w-full max-w-lg">
         {/* Campo de entrada (textarea) */}
