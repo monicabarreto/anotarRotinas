@@ -74,45 +74,43 @@ function App() {
       }}
       className="min-h-screen flex flex-col items-center py-8 px-4"
     >
-      {/* <h1 className="text-4xl font-roboto md:sans-serif text-center text-blue-400 mb-8">Meu bloquinho de notas...</h1>
-      <h1 className="text-4xl font-roboto text-center text-blue-200 mb-8 shadow-text font-bold">
-      Meu bloquinho de notas...
-    </h1> */}
-     <div className="p-6">
-     <h1 className="text-4xl font-delius text-center  mb-8 shadow-text font-bold flex items-center justify-center">
+ 
+      
+ <div className="fixed top-0 left-0 w-full bg-blue-400 p-4 z-50">
+  <h1 className="text-4xl font-delius text-center text-white mb-4 font-bold flex items-center justify-center">
+    Meu bloquinho de notas...
+    <img src="koala.png" alt="" className="mr-4 w-12 h-12" />
 
-  Meu bloquinho de notas...
-  <img src="koala.png" alt="" className="mr-4 w-12 h-12" />
-</h1>
+  </h1>
+  <p className="font-playwrite text-lg text-white text-center">
+    Crie, planeje, anote o que quiser...
+  </p>
+  
+</div>
 
-      <p className="font-playwrite text-lg text-white flex text-center justify-center
-      ">
-        Crie, planeje, anote o que quiser... 
-      </p>
-    </div>
-    
 
-      <div className="flex flex-col mb-3 w-full max-w-lg">
-        {/* Campo de entrada (textarea) */}
-        <textarea
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
-          onKeyDown={handleKeyDown} // Adicionando evento de tecla pressionada
-          placeholder="Digite uma nova tarefa"
-          className="w-full p-4 border border-gray-300 rounded-lg shadow-md resize-none h-32"
-        />
-        
-        {/* Botão abaixo do campo de entrada */}
-        <button
-          onClick={addTask}
-          className="mt-2 bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-700 transition duration-300 flex justify-center items-center"
-        >
-          Adicionar
-          <svg className="w-6 h-6 text-white-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" d="M5 11.917 9.724 16.5 19 7.5"/>
-          </svg>
-        </button>
-      </div>
+<div className="pt-28 flex flex-col mb-3 w-full max-w-lg"> {/* Adicionando padding-top para o conteúdo não ficar embaixo do header */}
+  {/* Campo de entrada (textarea) */}
+  <textarea
+    value={taskInput}
+    onChange={(e) => setTaskInput(e.target.value)}
+    onKeyDown={handleKeyDown} // Adicionando evento de tecla pressionada
+    placeholder="Digite uma nova tarefa"
+    className="w-full p-4 border border-gray-300 rounded-lg shadow-md resize-none h-32"
+  />
+
+  {/* Botão abaixo do campo de entrada */}
+  <button
+    onClick={addTask}
+    className="mt-2 bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-700 transition duration-300 flex justify-center items-center"
+  >
+    Adicionar
+    <svg className="w-6 h-6 text-white-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" d="M5 11.917 9.724 16.5 19 7.5"/>
+    </svg>
+  </button>
+</div>
+
 
       {/* Lista de tarefas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8 w-full max-w-6xl">
@@ -134,7 +132,7 @@ function App() {
                   e.stopPropagation();
                   editTask(task.id);
                 }}
-                className="bg-yellow-300 text-white py-1 px-3 rounded-lg hover:bg-yellow-200 transition duration-300"
+                className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-300 transition duration-300"
               >
                 Editar
               </button>
@@ -159,7 +157,7 @@ function App() {
             <textarea
               value={selectedTask.content}
               readOnly
-              rows={12}
+              rows={8}
               className="w-full p-2 border border-blue-300 rounded-lg resize-none mb-4"
             />
             <button
